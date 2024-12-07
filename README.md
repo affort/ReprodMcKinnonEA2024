@@ -21,7 +21,7 @@ They do so by finding the 95% confidence interval based on $N$ simulations from 
 Reject $\hat{\beta_1}$ if $\hat{\beta_1} \leq \hat{\beta_1}^{(\textnormal{sim, 2.5pct})}$ or $\hat{\beta_1} \geq \hat{\beta_1}^{(\textnormal{sim, 97.5pct})}$.
 
 McKinnon et al. (2024) show that the test's power is strong, in that it is sensitive enough to reject the null hypothesis when the data has linearly-increasing variance over time. 
-I.e., if the variance is $x\%$ higher in 2023 than it was in 1959, and if the variance increased linearly from $v$ in 1959 to $v\left(1+\frac{x}{100}\right)$ in 2023, the test power will reject the null almost 100% of the time.
+I.e., if the variance is $x$% higher in 2023 than it was in 1959, and if the variance increased linearly from $v$ in 1959 to $v\left(1+\frac{x}{100}\right)$ in 2023, the test power will reject the null almost 100% of the time.
 I reproduced their simulations and got the same result.
 I then introduced two new test cases --- I check whether the test's power remains strong when detecting a (i) quadratically increasing variance over time, and (ii) exponentially increasing variance over time, for various values of $x$.
 
