@@ -1,5 +1,5 @@
 ---
-title: "Appendix: Code"
+title: "Code"
 author: "Teng Wei Yeo"
 output: pdf_document
 ---
@@ -50,7 +50,7 @@ knitr::opts_chunk$set(fig.width=8, fig.height=5)
 
 ```
 
-```{r Reproduction}
+```{r Rejection interval based on null hypothesis}
 
 ##############################
 #### Reproducing Fig. S2. ####
@@ -80,10 +80,15 @@ for (i in 1:samples){
   mem_avg[i] <- coef(lm(means~year_seq))["year_seq"]
 }
 
-mem_avg
 
 rejection <- quantile(mem_avg, probs = c(0.025, 0.975))
+rejection
+```
 
+The rejection region is when the coefficient for year is smaller than 
+`r rejection[1]` or greater than `r rejection[2]`.
+
+```{r Reproduction: mean and variance}
 
 
 mean_seq <- seq(0,2,0.25)
@@ -143,6 +148,9 @@ for (i in 1:length(var_seq)){
 
 proportions_var <- apply(is_sig_mat_var, MARGIN=2, sum) / data_samples
 proportions_var
+```
+
+```{r Visualisation}
 
 ## Visualisation
 
@@ -180,7 +188,7 @@ ggplot(data = df_var, aes(x = var_change, y = rej_probab_var))+
 
 Results are identical to Fig. S2(e).
 
-```{r New test case: Quadratic}
+```{r New test case for quadratic}
 
 ###########################################
 #### Quadratically increasing variance ####
@@ -213,6 +221,9 @@ for (i in 1:length(var_seq)){
 }
 
 proportions_var2 <- apply(is_sig_mat_var, MARGIN=2, sum) / data_samples
+proportions_var2
+
+
 temp <- data.frame(rej_probab_var = proportions_var2,
                    var_change = var_seq,
                    type = "Quadratically increasing")
@@ -234,7 +245,7 @@ ggplot(data = df_var2, aes(x = var_change,
 
 The power of the test remains high for quadratically-increasing variance.
 
-``` {r New test case: exponential}
+``` {r New test case for exponential}
 ###########################################
 #### Exponentially increasing variance ####
 ###########################################
@@ -270,6 +281,8 @@ for (i in 1:length(var_seq)){
 }
 
 proportions_var3 <- apply(is_sig_mat_var, MARGIN=2, sum) / data_samples
+proportions_var3
+
 
 temp2 <- data.frame(rej_probab_var = proportions_var3,
                    var_change = var_seq,
@@ -303,7 +316,7 @@ accounting the magnitude of the change in variance.
 Since the `ramp' of exp() is quite steep (i.e., it takes until the 59th 
 year for exp_seq > 0.001), there is only a small change in variance
 for most of the years. The variance increases by a lot only in the last
-few years. 
+few years:
 
 ```{r}
 exp_seq
