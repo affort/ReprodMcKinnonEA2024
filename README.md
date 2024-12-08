@@ -27,4 +27,4 @@ I reproduced their simulations and got the same result.
 I then introduced two new test cases --- I check whether the test's power remains strong when detecting a (i) quadratically increasing variance over time, and (ii) exponentially increasing variance over time, for various values of $x$.
 
 I show that, for a given rejection region with 5% Type I error rate, the test’s power is strong if the data’s variance increases linearly or quadratically over time, but weakens if the increase is exponential over time. 
-This is visualized in page 9 of `Reprod_Synthetic_McKinnonEA2024.pdf`.
+This is visualized in `Main_Plot.pdf`, or in page 9 of `Reprod_Synthetic_McKinnonEA2024.pdf`.
