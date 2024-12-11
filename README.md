@@ -9,6 +9,8 @@ I then introduce two new cases to check whether the test retains its power under
 The code produced and shared by the authors, `synthetic_data_tests.py`, 
 was used as a reference. My reproduced code is in `Reprod_Synthetic_McKinnonEA2024.r`. An Rmarkdown version is in `Reprod_Synthetic_McKinnonEA2024.rmd`, and the output is visible in `Reprod_Synthetic_McKinnonEA2024.pdf`.
 
+Please email me (Teng Wei Yeo) at yeotengwei@gmail.com if you have any questions.
+
 ## Summary
 McKinnon et al. (2024, Fig. S2) propose a non-parametric test for detecting trends in the magnitude of the difference between extremes and the median over time. 
 The null hypothesis is that there is no change in the variance. 
